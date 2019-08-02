@@ -63,8 +63,15 @@ functions:
     handler: handler.getAccessToken
     events:
       - http:
-         path: api/token/{code}
-         method: get
+          path: api/token/{code}
+          method: get
+
+  refreshAccessToken:
+    handler: handler.refreshAccessToken
+    events:
+      - http:
+          path: api/token/{code}
+          method: get
 
 
 
