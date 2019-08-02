@@ -9,7 +9,7 @@ module.exports.getAccessToken = async (event) => {
       + '&client_secret=q1atlc62b28m8eek3p1fvvh8a9'
       + '&grant_type=authorization_code'
       + '&redirect_uri=https://tdnicola.github.io/meetup/'
-      + '&code=2d5c274943f43641f23a10f061a0c025';
+      + '&code=' + event.pathParameters.code;
 
     const info = await axios.post(MEETUP_OAUTH_URL);
 
