@@ -45,4 +45,4 @@ module.exports.refreshAccessToken = async (event) => {
       refresh_token: info.data.refresh_token,
     }),
   };
-}
+};
