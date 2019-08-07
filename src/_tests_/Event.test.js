@@ -20,15 +20,22 @@ describe('<Event /> component', () => {
         expect(EventWrapper.state('showDetails')).toBe(false)
     })
   
-    test('render list of events correctly', () => {
+    test('check to see if meetup ID is populated', () => {
         const events = EventWrapper.state('events');
-        expect(EventWrapper.find('.events li')).toHaveLength(events.length);
-        for (let i=0; i < events.length; i += 1) {
-            expect(EventWrapper.find('.events li').at(i).text()).toBe(events[i].name);
-        }
+        expect(events[0].id).toBe('263222596');
     })
-    // test('populate name of event', () =>{
-        
+
+    // test('check to see if meetup date is correct', () => {
+    //     expect(EventWrapper.find('.eventDate')).toBe('2019-08-07')        
     // })
+    test('Check to see if button exists', () => {
+      expect(EventWrapper.find('.eventButton')).toHaveLength(1);  
+    })
+
+    test('testing to see if button click changes state', () => {
+        EventWrapper.find('.eventButton').simulate('click');
+        expect(EventWrapper.state('showDetails')).toBe(true);
+    })
+
 
 })
