@@ -8,9 +8,17 @@ describe('<NumberOfEvents /> Component', () => {
         NumberOfEventsWrapper = shallow(<NumberOfEvents />);
     });
 
-        test('events component is generated', () => {
-            expect(NumberOfEventsWrapper.find('.events')).toHaveLength(1);
-        })
+    test('events component is generated', () => {
+        expect(NumberOfEventsWrapper.find('.events')).toHaveLength(1);
+    })
 
+    test('input of requested amount of events is generated', () => {
+        expect(NumberOfEventsWrapper.find('.eventsNumberInput')).toHaveLength(1);
+    })
+
+    test('render number input correctly', () => {
+        const numberQuery = NumberOfEventsWrapper.state('numberQuery');
+        expect(NumberOfEventsWrapper.find('.eventsNumberInput').prop('value')).toBe(numberQuery)
+    })
 });
 
