@@ -10,15 +10,25 @@ describe('<NumberOfEvents /> Component', () => {
 
     test('events component is generated', () => {
         expect(NumberOfEventsWrapper.find('.events')).toHaveLength(1);
-    })
+    });
 
     test('input of requested amount of events is generated', () => {
         expect(NumberOfEventsWrapper.find('.eventsNumberInput')).toHaveLength(1);
-    })
+    });
 
-    test('render number input correctly', () => {
+    test('render number input correctly to state', () => {
         const numberQuery = NumberOfEventsWrapper.state('numberQuery');
         expect(NumberOfEventsWrapper.find('.eventsNumberInput').prop('value')).toBe(numberQuery)
+    });
+
+    test('default number of events per page is 25', () => {
+        expect(NumberOfEventsWrapper.state('numberQuery')).toBe(25);
+    });
+
+    test('change state when number changes', () => {
+        const eventObject = { target: { value: 30 }};
+        NumberOfEventsWrapper.find('.eventsNumberInput').simulate('change', eventObject);
+        expect(NumberOfEventsWrapper.state('numberQuery')).toBe(30);
     })
 });
 
