@@ -19,13 +19,16 @@ class Event extends Component {
     return (
       <div className='eventList'>
         <div className='events' >
-          {/* {this.state.events.map(event =>  */}
-            <div key={event.id}> 
+            <div key={event.id}>{event.name}
               <div className='eventDate'>{event.local_date}</div>
               <button className='eventButton' onClick={this.handleChange}>more details</button>
+              {this.state && (
+                <div className='eventDetails'>
+                <div className='eventVenue'>{event.venue.name}</div>
+                <div className='eventStatus'>{event.status}</div>    
+                </div>            
+              )}
             </div>
-            
-            {/* )} */}
         </div>
       </div>
     );

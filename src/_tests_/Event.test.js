@@ -50,11 +50,6 @@ describe('<Event /> component', () => {
     test('check to see if showDetails for events is false', () => {
         expect(EventWrapper.state('showDetails')).toBe(false)
     })
-  
-    // test('check to see if meetup ID is populated', () => {
-    //     const events = EventWrapper.state('events');
-    //     expect(events[0].id).toBe('263222596');
-    // })
 
     test('check to see if meetup date is correct', () => {
         expect(EventWrapper.find('.eventDate').text()).toBe('2019-08-07');
