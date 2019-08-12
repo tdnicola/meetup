@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Event';
-
+import {MockData} from '../MockData/MockData';
 class EventList extends Component {
 state = {
   events: []
