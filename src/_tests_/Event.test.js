@@ -52,7 +52,7 @@ describe('<Event /> component', () => {
     })
 
     test('check to see if meetup date is correct', () => {
-        expect(EventWrapper.find('.eventDate').text()).toBe('2019-08-07');
+        expect(EventWrapper.find('.eventDate').text()).toBe('Date: 2019-08-07');
     })
 
     test('Check to see if button exists', () => {
@@ -63,12 +63,5 @@ describe('<Event /> component', () => {
         EventWrapper.find('.eventButton').simulate('click');
         expect(EventWrapper.state('showDetails')).toBe(true);
     })
-
-
-test('check to see if meetup date is correct', () => {
-        expect(EventWrapper.find('.eventDate').text()).toBe('2019-08-07');
-    
         
-    })
-
 })
