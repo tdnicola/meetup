@@ -12,7 +12,7 @@ class App extends Component {
       <div className='app'>
         <CitySearch/>
         <EventList/>
-        <Event />
+        {/* <Event /> */}
         <NumberOfEvents/>
       </div>
     )

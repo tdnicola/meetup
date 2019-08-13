@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Event from './Event';
-import {MockData} from '../MockData/MockData';
+import { MockData } from '../MockData/MockData';
 class EventList extends Component {
 state = {
-  events: []
+  events: MockData
 }
   render() {
 
@@ -11,7 +11,7 @@ state = {
       <ul className='EventList'>
         {this.state.events.map(event => 
           <li key={event.id}>
-            <Event event={event} />
+            <Event event={event}  />
           </li>
         )}
       </ul>
