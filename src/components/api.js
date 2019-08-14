@@ -1,24 +1,35 @@
 async function getSuggestions(query) {
     return [
-        {
-            city: 'Munich',
-            country: 'de',
-            localized_country_name: 'Germany',
-            name_string: 'Munich, Germany',
-            zip: 'meetup3',
-            lat: 48.14,
-            lon: 11.58,
-          },
-          {
-            city: 'Munich',
-            country: 'us',
-            localized_country_name: 'USA',
-            state: 'ND',
-            name_string: 'Munich, North Dakota, USA',
-            zip: '58352',
-            lat: 48.66,
-            lon: -98.85,
-          }
+      {
+        city: 'Denver',
+        country: 'us',
+        localized_country_name: 'USA',
+        state: 'CO',
+        name_string: 'Denver, Colorado, USA',
+        zip: '80201',
+        lat: 39.7,
+        lon: -105.08
+      },
+      {
+        city: 'Denver',
+        country: 'us',
+        localized_country_name: 'USA',
+        state: 'NC',
+        name_string: 'Denver, North Carolina, USA',
+        zip: '28037',
+        lat: 35.51,
+        lon: -81.02
+      },
+      {
+        city: 'Denver',
+        country: 'us',
+        localized_country_name: 'USA',
+        state: 'PA',
+        name_string: 'Denver, Pennsylvania, USA',
+        zip: '17517',
+        lat: 40.24,
+        lon: -76.14
+      }
     ]
 }
 

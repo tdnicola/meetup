@@ -40,11 +40,7 @@ describe('<Event /> component', () => {
     });
 
     test('event container exists', () => {
-        expect(EventWrapper.find('.events')).toHaveLength(1);
-    });
-
-    test('event container exists', () => {
-        expect(EventWrapper.find('.eventList')).toHaveLength(1);
+        expect(EventWrapper.find('.event')).toHaveLength(1);
     });
 
     test('check to see if showDetails for events is false', () => {

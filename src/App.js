@@ -10,10 +10,10 @@ class App extends Component {
   render () {
     return (
       <div className='app'>
-        <CitySearch/>
+        <CitySearch updateEvents={this.updateEvents} />
         <EventList/>
         {/* <Event /> */}
-        <NumberOfEvents/>
+        <NumberOfEvents />
       </div>
     )
   }
