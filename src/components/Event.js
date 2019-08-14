@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-// import {MockData} from '../MockData/MockData';
 
 class Event extends Component {
   state = {
     showDetails: false,
-    // event: MockData
   }
 
   

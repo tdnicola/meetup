@@ -1,4 +1,4 @@
-export const MockData = {
+const mockData = {
   city: {
     id: 80201,
     city: 'Denver',
@@ -256,3 +256,5 @@ export const MockData = {
     }
   ]
 }
+
+export { mockData }

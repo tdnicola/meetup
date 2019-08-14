@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Event from './Event';
-import { MockData } from '../MockData/MockData';
+import { mockData } from '../mockData/mockData';
 
 class EventList extends Component {
 state = {
-  eventsData: MockData
+  eventsData: mockData
 }
   render() {
 
