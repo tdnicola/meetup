@@ -1,4 +1,4 @@
-import mockData from '../mockData/mockData';
+import { mockData } from '../mockData/mockData';
 
 async function getSuggestions(query) {
     return [

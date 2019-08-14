@@ -5,6 +5,7 @@ import CitySearch from './components/CitySearch';
 import Event from './components/Event';
 import NumberOfEvents from './components/NumberOfEvents';
 import { getEvents } from './components/api';
+import { mockData } from './mockData/mockData'
 
 
 class App extends Component {
@@ -13,8 +14,8 @@ class App extends Component {
     events: []
   }
 
-  updateEvents = (lat, lon) => {
-    getEvents(lat, lon).then(events => this.setState({ events }))
+updateEvents = (lat, lon) => {
+    getEvents(lat, lon).then(events => this.setState({ events }));
   }
 
   render () {
