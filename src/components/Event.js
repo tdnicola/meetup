@@ -16,7 +16,7 @@ class Event extends Component {
 
     return (
         <div className='event' >
-            <div>{event.name}</div>
+            <div className='eventName'>{event.name}</div>
               <span className='eventDate'>Date: {event.local_date}</span>
               <button className='eventButton' onClick={this.handleChange}>more details</button>
 

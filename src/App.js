@@ -22,7 +22,7 @@ updateEvents = (lat, lon) => {
 
     
     return (
-      <div className='app'>
+      <div className='App'>
         <CitySearch updateEvents={this.updateEvents} />
         <EventList events={this.state.events}/>
         {/* <Event /> */}
