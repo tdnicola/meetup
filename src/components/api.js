@@ -49,7 +49,20 @@ async function getSuggestions(query) {
 }
 
 async function getEvents(lat, lon) {
-  return mockData.events;
+  if (window.location.href.startsWith('http://localhost')) {
+    return mockData.events;
+  }
+
+  const token = await getAccessToken();
+  if (token) {
+    let url = 'https://api.meetup.com/find/upcoming_events?&sign=true&photo-host=public' + '&access_token=' + token;
+  
+    if (lat && lon) {
+      url += '&lat=' + lat + '&lon=' + lon;
+    } 
+    const result = await axios.get(url);
+    return result.data.events
+  }
 }
 
 //ACCESS TOKEN CHECKING
