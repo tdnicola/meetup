@@ -46,4 +46,10 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual(mockData.events)
   })
 
+  test('render correct list of events', () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.setState({events: [{id: 1}, {id: 2}, {id: 3},{id: 4}]})
+    expect(AppWrapper.state('events')).toHaveLength(4);
+    AppWrapper.unmount();
+  })
 });

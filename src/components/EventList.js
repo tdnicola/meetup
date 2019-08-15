@@ -3,14 +3,16 @@ import Event from './Event';
 import { mockData } from '../mockData/mockData';
 
 class EventList extends Component {
-state = {
-  eventsData: mockData
-}
+// state = {
+//   eventsData: mockData
+// }
   render() {
 
     return (
       <ul className='EventList'>
-        {this.state.eventsData.events.map(event => 
+        {this.props.events.map(event => 
+        // {this.state.eventsData.events.map(event => 
+
           <li key={event.id}>
             <Event event={event}  />
           </li>
