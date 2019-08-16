@@ -82,7 +82,8 @@ localStorage.setItem('access_token', tokenInfo.data.access_token);
 localStorage.setItem('refresh_token', tokenInfo.data.refresh_token);
 localStorage.setItem('last_saved_time', Date.now());
 
-
+//return the access token
+return tokenInfo.data.access_token;
 }
 
 

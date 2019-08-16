@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Event extends Component {
   state = {
     showDetails: false,
+    events: []
   }
 
   
@@ -12,7 +13,8 @@ class Event extends Component {
   
   render() {
 
-    const { event } = this.props
+    // const { event } = this.props
+    const event = this.props.event;
 
     return (
         <div className='event' >
