@@ -41,7 +41,7 @@ async function getSuggestions(query) {
   if (token) {
     const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
     + query
-    + '&access_token' + token;
+    + '&access_token=' + token;
     const result = await axios.get(url);
     return result.data
   }
@@ -72,20 +72,20 @@ async function getOrRenewAccessToken(type, key) {
     //lambda endpoint to get token by code
     url = 'https://ueg2lqopz6.execute-api.us-east-2.amazonaws.com/dev/api/token/' + key;
   } else if (type === 'renew') {
+    //Lambda endpoint to get refresh token
     url = 'https://ueg2lqopz6.execute-api.us-east-2.amazonaws.com/dev/api/refresh/' + key;
   }
 //axios to get request to endpoint
-const tokenInfo = await axios.get(url);
+  const tokenInfo = await axios.get(url);
 
 //save tokens to localStorage together with timestamp
-localStorage.setItem('access_token', tokenInfo.data.access_token);
-localStorage.setItem('refresh_token', tokenInfo.data.refresh_token);
-localStorage.setItem('last_saved_time', Date.now());
+  localStorage.setItem('access_token', tokenInfo.data.access_token);
+  localStorage.setItem('refresh_token', tokenInfo.data.refresh_token);
+  localStorage.setItem('last_saved_time', Date.now());
 
-//return the access token
-return tokenInfo.data.access_token;
+  //return the access token
+  return tokenInfo.data.access_token;
 }
-
 
 function getAccessToken() {
   const accessToken = localStorage.getItem('access_token');
@@ -95,14 +95,20 @@ function getAccessToken() {
     const code = searchParams.get('code')
 
     if (!code) {
-      window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=337jbe8sopjh7q62t45t732omi&response_type=code&redirect_uri=https://tdnicola.github.io/meetup'
-      return null
+        window.location.href = 'https://secure.meetup.com/oauth2/authorize?client_id=337jbe8sopjh7q62t45t732omi&response_type=code&redirect_uri=https://tdnicola.github.io/meetup'
+        return null
     }
-    return getOrRenewAccessToken('get', code);
+      return getOrRenewAccessToken('get', code);
   }
 
-  const refreshToken = localStorage.getItem('refresh_token');
-  return getOrRenewAccessToken('renew', refreshToken);
-}
+    const lastSavedTime = localStorage.getItem('last_saved_time');
+
+    if (accessToken && (Date.now() - lastSavedTime < 3600000)) {
+      return accessToken;
+    }
+
+    const refreshToken = localStorage.getItem('refresh_token');
+    return getOrRenewAccessToken('renew', refreshToken);
+ }
 
 export { getSuggestions, getEvents }; 

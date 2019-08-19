@@ -32,7 +32,7 @@ input[type="text"], input[type="number"] {
   align-self: center;
 }
 
-.CitySearch {
+.citySearch {
   display: flex;
   flex-direction: column;
 }
