@@ -1,3 +1,6 @@
+Redirect URL:  https://secure.meetup.com/oauth2/authorize?client_id=337jbe8sopjh7q62t45t732omi&response_type=code&redirect_uri=https://tdnicola.github.io/meetup
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

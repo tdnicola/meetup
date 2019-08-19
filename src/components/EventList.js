@@ -9,10 +9,8 @@ class EventList extends Component {
   render() {
 
     return (
-      <ul className='EventList'>
+      <ul className='eventList'>
         {this.props.events.map(event => 
-        // {this.state.eventsData.events.map(event => 
-
           <li key={event.id}>
             <Event event={event}  />
           </li>

@@ -29,7 +29,7 @@ module.exports.getAccessToken = async (event) => {
 module.exports.refreshAccessToken = async (event) => {
 
   const MEETUP_OAUTH_URL = 'https://secure.meetup.com/oauth2/access'
-    + 'client_id=337jbe8sopjh7q62t45t732omi'
+    + '?client_id=337jbe8sopjh7q62t45t732omi'
     + '&client_secret=q1atlc62b28m8eek3p1fvvh8a9'
     + '&grant_type=refresh_token'
     + '&refresh_token=' + event.pathParameters.code;

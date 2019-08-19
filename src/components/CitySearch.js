@@ -20,7 +20,7 @@ class CitySearch extends Component {
 
   render() {
     return (
-        <div className='CitySearch'>
+        <div className='citySearch'>
 
           <input className='city' input='text' value={this.state.query} onChange={this.handleInputChanged} />
           <ul className='suggestions' >
