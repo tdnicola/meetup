@@ -60,6 +60,7 @@ async function getEvents(lat, lon) {
     if (lat && lon) {
       url += '&lat=' + lat + '&lon=' + lon;
     } 
+
     const result = await axios.get(url);
     return result.data.events
   }

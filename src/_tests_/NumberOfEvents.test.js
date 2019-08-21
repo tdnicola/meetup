@@ -21,8 +21,8 @@ describe('<NumberOfEvents /> Component', () => {
         expect(NumberOfEventsWrapper.find('.eventsNumberInput').prop('value')).toBe(numberQuery)
     });
 
-    test('default number of events per page is 25', () => {
-        expect(NumberOfEventsWrapper.state('numberQuery')).toBe(25);
+    test('default number of events per page is 32', () => {
+        expect(NumberOfEventsWrapper.state('numberQuery')).toBe(32);
     });
 
     test('change state when number changes', () => {

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class NumberOfEvents extends Component {
 
     state = {
-        numberQuery: 25,
+        numberQuery: 32, //default event number per page for meetup
     }
 
     handleChange = (event) => {
@@ -22,7 +22,7 @@ class NumberOfEvents extends Component {
                     onChange={this.handleChange}
                     value={this.state.numberQuery}
 
-                    placeholder='20'
+                    placeholder='32'
                 />
                 <span>Events</span>
             </div>
