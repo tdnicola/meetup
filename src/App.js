@@ -11,9 +11,13 @@ class App extends Component {
     events: []
   }
 
-updateEvents = (lat, lon) => {
+updateEvents = (lat, lon, page) => {
+  if (lat && lon && page) {
+    getEvents(lat, lon, page).then(events => this.setState({ events }));
+  } else {
     getEvents(lat, lon).then(events => this.setState({ events }));
   }
+}
 
 //loading events based on location, no lat/lon at first load.
   componentDidMount(){
@@ -26,7 +30,7 @@ updateEvents = (lat, lon) => {
         <h3>Checkout some events for your city!</h3>
         <CitySearch updateEvents={this.updateEvents} />
         <EventList events={this.state.events}/>
-        <NumberOfEvents />
+        <NumberOfEvents updateEvents={this.updateEvents} />
       </div>
     )
   }
