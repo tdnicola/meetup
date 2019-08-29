@@ -8,20 +8,25 @@ import { getEvents } from './components/api';
 class App extends Component {
 
   state = {
-    events: []
+    events: [],
+    page: null,
   }
 
 updateEvents = (lat, lon, page) => {
-  if (lat && lon && page) {
-    getEvents(lat, lon, page).then(events => this.setState({ events }));
+  if (lat && lon) {
+    getEvents(lat, lon, page).then(events => this.setState({ events, lat, lon}));
+  } else if (page) {
+    getEvents(this.state.lat, this.state.lon).then(events => this.setState({ events, page }));
   } else {
-    getEvents(lat, lon).then(events => this.setState({ events }));
+    getEvents(this.state.lat, this.state.lon, this.state.page).then(events => {
+      this.setState({ events })
+    })
   }
 }
 
 //loading events based on location, no lat/lon at first load.
   componentDidMount(){
-    this.updateEvents(null, null)
+    this.updateEvents()
   }
 
   render () {

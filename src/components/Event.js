@@ -20,12 +20,16 @@ class Event extends Component {
         <div className='event' >
             <div className='eventName'>{event.name}</div>
               <span className='eventDate'>Date: {event.local_date}</span>
+              <div className='eventLocation'>Location: {event.venue.address_1}</div>    
+              <div className='eventLocation'>City: {event.venue.city}</div>  
+              <div className='peopleGoing'>{event.rsvp_limit} people going.</div>  
+
               <button className='eventButton' onClick={this.handleChange}>more details</button>
 
               {this.state.showDetails && (
                 <div className='eventDetails'>
                 <div className='eventVenue'>Venue: {event.venue.name}</div> 
-                <div className='eventStatus'>Status: {event.status}</div>    
+                <div className='eventStatus'>Status: {event.status}</div>   
                 </div>            
               )}
 
