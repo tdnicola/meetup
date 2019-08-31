@@ -11,25 +11,45 @@ class Event extends Component {
     this.setState({ showDetails: !this.state.showDetails })
   }
   
+
   render() {
 
-    // const { event } = this.props
+    function venueAddress(){
+      if (event.venue === undefined) {
+        return "You must be a member of this group to see address"}
+        else {
+          return event.venue.address_1}
+    }
+    function venueCity(){
+      if (event.venue === undefined) {
+        return "You must be a member of this group to see this"}
+        else {
+          return event.venue.city}
+    }
+    function venueState(){
+      if (event.venue === undefined) {
+        return "You must be a member of this group to see address"}
+        else {
+          return event.venue.state}
+    }
+
     const event = this.props.event;
 
     return (
         <div className='event' >
             <div className='eventName'>{event.name}</div>
               <span className='eventDate'>Date: {event.local_date}</span>
-              <div className='eventLocation'>Location: {event.venue.address_1}</div>    
-              <div className='eventLocation'>City: {event.venue.city}</div>  
-              <div className='peopleGoing'>{event.rsvp_limit} people going.</div>  
+              <div className='eventLocationCity'>City: {venueCity()}</div>  
+              <div className='eventLocationCity'>State: {venueState()}</div>  
 
               <button className='eventButton' onClick={this.handleChange}>more details</button>
 
               {this.state.showDetails && (
                 <div className='eventDetails'>
-                <div className='eventVenue'>Venue: {event.venue.name}</div> 
-                <div className='eventStatus'>Status: {event.status}</div>   
+                <div className='eventVenue'>Venue: {venueAddress()}</div> 
+                <div className='eventStatus'>Status: {event.status}</div>  
+                <div className='peopleGoing'>{event.rsvp_limit} people going.</div>  
+
                 </div>            
               )}
 

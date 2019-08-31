@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 class NumberOfEvents extends Component {
 
     state = {
-        numberQuery: 32, //default event number per page for meetup
+        query: 32, //default event number per page for meetup
     }
 
     handleChange = (event) => {
         const value = event.target.value;
-        this.setState({ numberQuery: value });
+        this.setState({ query: value });
+        this.props.updateEvents(null, null, value);
     }
 
     render () {
@@ -20,7 +21,7 @@ class NumberOfEvents extends Component {
                     className='eventsNumberInput'
                     type='number'
                     onChange={this.handleChange}
-                    value={this.state.numberQuery}
+                    value={this.state.query}
 
                     placeholder='32'
                 />
