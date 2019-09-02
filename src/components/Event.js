@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Event extends Component {
   state = {
     showDetails: false,
-    events: []
+    events: [],
   }
 
   
@@ -17,38 +17,38 @@ class Event extends Component {
     function venueAddress(){
       if (event.venue === undefined) {
         return "You must be a member of this group to see address"}
-        else {
-          return event.venue.address_1}
+      else {
+        return event.venue.address_1}
     }
     function venueCity(){
       if (event.venue === undefined) {
         return "You must be a member of this group to see this"}
-        else {
+      else {
           return event.venue.city}
     }
     function venueState(){
       if (event.venue === undefined) {
         return "You must be a member of this group to see address"}
-        else {
+      else {
           return event.venue.state}
     }
 
-    const event = this.props.event;
+    const { event }= this.props;
 
     return (
         <div className='event' >
             <div className='eventName'>{event.name}</div>
               <span className='eventDate'>Date: {event.local_date}</span>
-              <div className='eventLocationCity'>City: {venueCity()}</div>  
-              <div className='eventLocationCity'>State: {venueState()}</div>  
+              <div className='eventLocationCity'>City: {event.venue.city}</div>  
+              <div className='eventLocationCity'>State: {event.venue.state}</div>  
 
               <button className='eventButton' onClick={this.handleChange}>more details</button>
 
               {this.state.showDetails && (
                 <div className='eventDetails'>
-                <div className='eventVenue'>Venue: {venueAddress()}</div> 
+                <div className='eventVenue'>Venue: {event.venue.address_1}</div> 
                 <div className='eventStatus'>Status: {event.status}</div>  
-                <div className='peopleGoing'>{event.rsvp_limit} people going.</div>  
+                {/* <div className='peopleGoing'>{event.rsvp_limit} people going.</div>   */}
 
                 </div>            
               )}

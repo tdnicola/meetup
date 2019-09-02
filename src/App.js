@@ -10,17 +10,23 @@ class App extends Component {
   state = {
     events: [],
     page: null,
+    lat: null,
+    lon: null,
   }
 
 updateEvents = (lat, lon, page) => {
   if (lat && lon) {
-    getEvents(lat, lon, page).then(events => this.setState({ events, lat, lon}));
+    getEvents(lat, lon, page).then(events => 
+      this.setState({ events, lat, lon })
+      );
   } else if (page) {
-    getEvents(this.state.lat, this.state.lon).then(events => this.setState({ events, page }));
+    getEvents(this.state.lat, this.state.lon).then(events => 
+      this.setState({ events, page })
+      );
   } else {
-    getEvents(this.state.lat, this.state.lon, this.state.page).then(events => {
-      this.setState({ events })
-    })
+    getEvents(this.state.lat, this.state.lon, this.state.page).then(events => 
+       this.setState({ events })
+    );
   }
 }
 

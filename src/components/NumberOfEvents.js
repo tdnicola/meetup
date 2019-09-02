@@ -22,7 +22,6 @@ class NumberOfEvents extends Component {
                     type='number'
                     onChange={this.handleChange}
                     value={this.state.query}
-
                     placeholder='32'
                 />
                 <span>Events</span>
