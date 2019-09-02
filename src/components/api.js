@@ -62,7 +62,7 @@ async function getEvents(lat, lon, page) {
     } 
 
     if (page) {
-      url += '&page' + page;
+      url += '&page=' + page;
     }
 
     const result = await axios.get(url);

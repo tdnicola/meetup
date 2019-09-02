@@ -20,12 +20,14 @@ class Event extends Component {
       else {
         return event.venue.address_1}
     }
+
     function venueCity(){
       if (event.venue === undefined) {
         return "You must be a member of this group to see this"}
       else {
           return event.venue.city}
     }
+    
     function venueState(){
       if (event.venue === undefined) {
         return "You must be a member of this group to see address"}
