@@ -13,14 +13,19 @@ class App extends Component {
     lat: null,
     lon: null,
   }
+  
+  //loading events based on location, no lat/lon at first load.
+    componentDidMount(){
+      this.updateEvents()
+    }
 
 updateEvents = (lat, lon, page) => {
   if (lat && lon) {
-    getEvents(lat, lon, page).then(events => 
+    getEvents(lat, lon, this.state.page).then(events => 
       this.setState({ events, lat, lon })
       );
   } else if (page) {
-    getEvents(this.state.lat, this.state.lon).then(events => 
+    getEvents(this.state.lat, this.state.lon, page).then(events => 
       this.setState({ events, page })
       );
   } else {
@@ -29,11 +34,6 @@ updateEvents = (lat, lon, page) => {
     );
   }
 }
-
-//loading events based on location, no lat/lon at first load.
-  componentDidMount(){
-    this.updateEvents()
-  }
 
   render () {
     return (

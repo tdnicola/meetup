@@ -68,6 +68,7 @@ async function getEvents(lat, lon, page) {
     const result = await axios.get(url);
     return result.data.events
   }
+  return [];
 }
 
 //ACCESS TOKEN CHECKING
