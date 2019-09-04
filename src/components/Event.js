@@ -11,38 +11,37 @@ class Event extends Component {
     this.setState({ showDetails: !this.state.showDetails })
   }
   
-
+  
   render() {
+    const { event } = this.props;
 
-    function venueAddress(){
-      if (event.venue === undefined) {
-        return "You must be a member of this group to see address"}
-      else {
-        return event.venue.address_1}
-    }
+    // function venueAddress(){
+    //   if (event.venue === undefined) {
+    //     return "You must be a member of this group to see address"}
+    //   else {
+    //     return event.venue.address_1}
+    // }
 
-    function venueCity(){
-      if (event.venue === undefined) {
-        return "You must be a member of this group to see this"}
-      else {
-          return event.venue.city}
-    }
+    // function venueCity(){
+    //   if (event.venue === undefined) {
+    //     return "You must be a member of this group to see this"}
+    //   else {
+    //       return event.venue.city}
+    // }
+
+    // function venueState(){
+    //   if (event.venue === undefined) {
+    //     return "You must be a member of this group to see address"}
+    //   else {
+    //       return event.venue.state}
+    // }
     
-    function venueState(){
-      if (event.venue === undefined) {
-        return "You must be a member of this group to see address"}
-      else {
-          return event.venue.state}
-    }
-
-    const { event }= this.props;
-
     return (
         <div className='event' >
             <div className='eventName'>{event.name}</div>
               <span className='eventDate'>Date: {event.local_date}</span>
-              <div className='eventLocationCity'>City: {event.venue.city}</div>  
-              <div className='eventLocationCity'>State: {event.venue.state}</div>  
+              {/* <div className='eventLocationCity'>City: {event.venue.city}</div>   */}
+              {/* <div className='eventLocationCity'>State: {event.venue.state}</div>   */}
 
               <button className='eventButton' onClick={this.handleChange}>more details</button>
 

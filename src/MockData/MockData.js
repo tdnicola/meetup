@@ -73,19 +73,19 @@ const mockData = {
       utc_offset: -21600000,
       waitlist_count: 0,
       yes_rsvp_count: 100,
-      venue: {
-        id: 26226878,
-        name: 'Big Trouble',
-        lat: 39.76924133300781,
-        lon: -104.977294921875,
-        repinned: false,
-        address_1: '3501 Wazee St Suite #100',
-        city: 'Denver',
-        country: 'us',
-        localized_country_name: 'USA',
-        zip: '80216',
-        state: 'CO'
-      },
+      // venue: {
+      //   id: 26226878,
+      //   name: 'Big Trouble',
+      //   lat: 39.76924133300781,
+      //   lon: -104.977294921875,
+      //   repinned: false,
+      //   address_1: '3501 Wazee St Suite #100',
+      //   city: 'Denver',
+      //   country: 'us',
+      //   localized_country_name: 'USA',
+      //   zip: '80216',
+      //   state: 'CO'
+      // },
       group: {
         created: 1439225694000,
         name: 'Develop Happy Hour',
