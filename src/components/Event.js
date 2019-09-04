@@ -14,40 +14,22 @@ class Event extends Component {
   
   render() {
     const { event } = this.props;
-
-    // function venueAddress(){
-    //   if (event.venue === undefined) {
-    //     return "You must be a member of this group to see address"}
-    //   else {
-    //     return event.venue.address_1}
-    // }
-
-    // function venueCity(){
-    //   if (event.venue === undefined) {
-    //     return "You must be a member of this group to see this"}
-    //   else {
-    //       return event.venue.city}
-    // }
-
-    // function venueState(){
-    //   if (event.venue === undefined) {
-    //     return "You must be a member of this group to see address"}
-    //   else {
-    //       return event.venue.state}
-    // }
+    if (!event) {
+      return <div>Loading....</div>
+    }
     
     return (
         <div className='event' >
             <div className='eventName'>{event.name}</div>
               <span className='eventDate'>Date: {event.local_date}</span>
-              {/* <div className='eventLocationCity'>City: {event.venue.city}</div>   */}
-              {/* <div className='eventLocationCity'>State: {event.venue.state}</div>   */}
+              <div className='eventLocationCity'>City: {event.venue && event.venue.city}</div>  
+              <div className='eventLocationCity'>State: {event.venue && event.venue.state}</div>  
 
               <button className='eventButton' onClick={this.handleChange}>more details</button>
 
               {this.state.showDetails && (
                 <div className='eventDetails'>
-                <div className='eventVenue'>Venue: {event.venue.address_1}</div> 
+                <div className='eventVenue'>Venue: {event.venue && event.venue.address_1}</div> 
                 <div className='eventStatus'>Status: {event.status}</div>  
                 {/* <div className='peopleGoing'>{event.rsvp_limit} people going.</div>   */}
 
