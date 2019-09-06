@@ -40,8 +40,8 @@ updateEvents = (lat, lon, page) => {
       <div className='App'>
         <h3>Checkout some events for your city!</h3>
         <CitySearch updateEvents={this.updateEvents} />
-        <EventList events={this.state.events}/>
         <NumberOfEvents updateEvents={this.updateEvents} />
+        <EventList events={this.state.events}/>
       </div>
     )
   }
