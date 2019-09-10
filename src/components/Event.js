@@ -32,7 +32,7 @@ class Event extends Component {
                 <div className='eventVenue'>Venue: {event.venue && event.venue.address_1}</div> 
                 <div className='eventStatus'>Status: {event.status}</div>  
                 <div className='eventStatus'>Name: {event.name}</div>
-                <div className='eventStatus'>Group: {event.group}</div>
+                <div className='eventStatus'>Group: {event.group.name}</div> 
 
 
                 {/* <div className='peopleGoing'>{event.rsvp_limit} people going.</div>   */}
