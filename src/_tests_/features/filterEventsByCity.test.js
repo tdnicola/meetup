@@ -13,7 +13,7 @@ defineFeature(feature, test => {
 
     	});
 
-			let AppWrapper;
+		let AppWrapper;
     	when('the user opens the app', () => {
 			AppWrapper = mount(<App />);
     	});
