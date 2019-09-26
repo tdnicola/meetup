@@ -28,16 +28,17 @@ defineFeature(feature, test => {
     test('User changes the amount of events seen', ({ given, when, then }) => {
         let AppWrapper;
     	given('user opens the app', () => {
-            AppWrapper = mount(<NumberOfEvents />);
+            AppWrapper = mount(<App />);
     	});
 
     	when('user changes the number in the events shown box', () => {
-            AppWrapper.find('.eventsNumberInput').simulate("change", { target: { query: 30 }});
+            AppWrapper.find('.eventsNumberInput').simulate("change", { target: { value: 30 }});
 
     	});
 
     	then('the user should receive the same number of events specified', () => {
-            expect(AppWrapper.state('query')).toEqual(30);
+            const EventWrapper = AppWrapper.find(NumberOfEvents)
+            expect(EventWrapper.state('query')).toEqual(30);
 
     	});
     });

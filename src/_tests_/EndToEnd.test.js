@@ -17,7 +17,7 @@ describe('show/hide an event details', () => {
 
     });
 
-    afterAll(async () => {
+    afterAll(() => {
         browser.close();
     });
 
@@ -40,3 +40,39 @@ describe('show/hide an event details', () => {
         expect(extra).toBeNull();
     })
 })
+
+describe('Filter events by city', () => {
+    let browser;
+    let page;
+    beforeAll(async () => {
+        browser = await puppeteer.launch({
+            headless: false,
+            slowMo: 250
+        });
+
+        page = await browser.newPage();
+        await page.goto('http://localhost:3000/');
+        });
+
+        afterAll(() => {
+            browser.close();
+        });
+
+        test('by default events will load by location', async () => {
+            const extra = await page.$('.event');
+            expect(extra).toBeDefined();
+        });
+
+        test('by default suggestions will not be shown', async () => {
+            const extra = await page.$('.suggestions li');
+            expect(extra).toBeNull();
+        });
+
+        test('user can type in their city to see results', async () => {
+            const extra = await page.$('.suggestions');
+            await page.type('.city', 'Denver')
+    
+            expect(extra).toBeDefined();
+        })
+    })
+
