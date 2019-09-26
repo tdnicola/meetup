@@ -4,10 +4,8 @@
   "private": true,
   "homepage": "http://tdnicola.github.io/meetup",
   "dependencies": {
+    "atatus-spa": "^4.0.3",
     "axios": "^0.19.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "puppeteer": "^1.20.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.0.1"
@@ -36,6 +34,10 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "gh-pages": "^2.1.1",
+    "jest-cucumber": "^2.0.11",
+    "puppeteer": "^1.20.0"
   }
 }
