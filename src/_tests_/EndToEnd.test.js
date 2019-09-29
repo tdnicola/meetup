@@ -7,7 +7,7 @@ describe('show/hide an event details', () => {
     beforeAll(async () => {
         browser = await puppeteer.launch({
             headless: false,
-            slowMo: 250
+            slowMo: 150
         });
         page = await browser.newPage();
         await page.goto('http://localhost:3000/');
@@ -48,13 +48,13 @@ describe('Filter events by city', () => {
     beforeAll(async () => {
         browser = await puppeteer.launch({
             headless: false,
-            slowMo: 250
+            slowMo: 150
         });
 
         page = await browser.newPage()
         await page.goto('http://localhost:3000/');
         await page.waitForSelector('.event');
-        });
+    });
 
         afterAll(() => {
             browser.close();
