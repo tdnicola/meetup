@@ -29,18 +29,18 @@ class Event extends Component {
 
               {this.state.showDetails && (
                 <div className='eventDetails'>
-                <div className='eventVenue'>Venue: {event.venue && event.venue.address_1}</div> 
-                <div className='eventStatus'>Status: {event.status}</div>  
-                <div className='eventDescription'>Description: {event.description}</div>
-                {/* <div className='eventGroupName'>Group: {event.group.name}</div>  */}
+                    <div className='eventVenue'>Venue: {event.venue && event.venue.address_1}</div> 
+                    <div className='eventStatus'>Status: {event.status}</div>  
+                    <div className='eventDescription' dangerouslySetInnerHTML={{ __html: event.description }}></div>
+                    {/* <div className='eventGroupName'>Group: {event.group.name}</div>  */}
 
 
-                {/* <div className='peopleGoing'>{event.rsvp_limit} people going.</div>   */}
+                    {/* <div className='peopleGoing'>{event.rsvp_limit} people going.</div>   */}
 
                 </div>            
               )}
 
-            </div>
+        </div>
     );
   }
 }

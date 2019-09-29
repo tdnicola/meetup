@@ -24,6 +24,7 @@ describe('show/hide an event details', () => {
     test('an event element is collapsed by default', async () => {
         const extra = await page.$('.event .extra');
         expect(extra).toBeNull();
+        jest.setTimeout(6000);
     });
 
     test('User can expand an event to see its details', async () => {
@@ -50,8 +51,9 @@ describe('Filter events by city', () => {
             slowMo: 250
         });
 
-        page = await browser.newPage();
+        page = await browser.newPage()
         await page.goto('http://localhost:3000/');
+        await page.waitForSelector('.event');
         });
 
         afterAll(() => {
