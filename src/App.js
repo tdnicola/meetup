@@ -4,6 +4,7 @@ import EventList from './components/EventList';
 import CitySearch from './components/CitySearch';
 import NumberOfEvents from './components/NumberOfEvents';
 import { getEvents } from './components/api';
+import {WarningAlert} from './components/Alert';
 
 class App extends Component {
 
@@ -41,6 +42,7 @@ class App extends Component {
         <h3>Checkout some events for your city!</h3>
         <CitySearch updateEvents={this.updateEvents} />
         <NumberOfEvents updateEvents={this.updateEvents} />
+        <WarningAlert text={this.state.infoText} />
         <EventList events={this.state.events}/>
       </div>
     )

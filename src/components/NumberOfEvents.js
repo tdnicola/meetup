@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ErrorAlert } from './Alert';
 
 class NumberOfEvents extends Component {
 
@@ -10,12 +11,24 @@ class NumberOfEvents extends Component {
         const value = event.target.value;
         this.setState({ query: value });
         this.props.updateEvents(null, null, value);
-    }
+
+        if (this.state.query < 0) {
+              this.setState({
+                    infoText: 'How are you going to do a negative search? Think about that..'
+                });
+            } else {
+                this.setState({
+                    infoText: ''
+                })
+            }
+        }
+
 
     render () {
         
         return (
             <div className='events'>
+            <ErrorAlert text={this.state.infoText} />
                 <span>Display</span>
                 <input 
                     className='eventsNumberInput'

@@ -34,7 +34,6 @@ class CitySearch extends Component {
   render() {
     return (
         <div className='citySearch'>
-
           <InfoAlert text={this.state.infoText} />
 
           <input className='city' input='text' value={this.state.query} onChange={this.handleInputChanged} />
