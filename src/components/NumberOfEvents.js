@@ -10,16 +10,16 @@ class NumberOfEvents extends Component {
     handleChange = (event) => {
         const value = event.target.value;
         this.setState({ query: value });
-        this.props.updateEvents(null, null, value);
-
-        if (this.state.query < 0) {
-              this.setState({
-                    infoText: 'How are you going to do a negative search? Think about that..'
-                });
-            } else {
-                this.setState({
-                    infoText: ''
-                })
+        
+        if (this.state.query <= 0) {
+            this.setState({
+                infoText: 'How are you going to do a search with no listings? Think about that..'
+            });
+        } else {
+            this.setState({
+                infoText: ''
+            })
+            this.props.updateEvents(null, null, value);
             }
         }
 

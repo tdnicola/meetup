@@ -42,7 +42,7 @@ async function getSuggestions(query) {
     const url = 'https://api.meetup.com/find/locations?&sign=true&photo-host=public&query='
     + query
     + '&access_token=' + token;
-    const result = await axios.get(url);
+    const result = await axios.get(url)
     return result.data
   }
   return []
