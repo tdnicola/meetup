@@ -17,7 +17,11 @@ class App extends Component {
   
   //loading events based on location, no lat/lon at first load.
     componentDidMount(){
-      this.updateEvents()
+      this.updateEvents();
+      this.noEvent();
+      // .then(() => {
+      //   this.noEvent()
+      // })
     }
 
     updateEvents = (lat, lon, page) => {
@@ -36,13 +40,26 @@ class App extends Component {
       }
     }
 
+      noEvent = () => {
+        if(this.state.events === 0) {
+          this.setState({
+            infoText: 'Man your city isn\'t fun, move somewhere else.'
+          });
+        } else {
+          this.setState({
+              infoText: ''
+          })
+        }
+      }
+
+
   render () {
     return (
       <div className='App'>
         <h3>Checkout some events for your city!</h3>
         <CitySearch updateEvents={this.updateEvents} />
         <NumberOfEvents updateEvents={this.updateEvents} />
-        <WarningAlert text={this.state.infoText} />
+        {this.state.noEvent && <WarningAlert text={this.state.infoText} /> }
         <EventList events={this.state.events}/>
       </div>
     )
