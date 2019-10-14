@@ -41,7 +41,7 @@ class App extends Component {
     }
 
       noEvent = () => {
-        if(this.state.events === 0) {
+        if(this.state.events.length === 0) {
           this.setState({
             infoText: 'Man your city isn\'t fun, move somewhere else.'
           });

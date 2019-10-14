@@ -11,7 +11,7 @@ class NumberOfEvents extends Component {
         const value = event.target.value;
         this.setState({ query: value });
         
-        if (this.state.query <= 0) {
+        if (value <= 0) {
             this.setState({
                 infoText: 'How are you going to do a search with no listings? Think about that..'
             });
