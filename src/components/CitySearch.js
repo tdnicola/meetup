@@ -30,7 +30,7 @@ class CitySearch extends Component {
     this.setState({ query: value, suggestions: [] });
     this.props.updateEvents(lat, lon)
   }
-
+  
   render() {
     return (
         <div className='citySearch'>
