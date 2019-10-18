@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
-import EventList from './components/EventList';
-import CitySearch from './components/CitySearch';
-import NumberOfEvents from './components/NumberOfEvents';
+import moment from 'moment';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+
 import { getEvents } from './components/api';
-import {WarningAlert, OfflineAlert} from './components/Alert';
+import { WarningAlert, OfflineAlert } from './components/Alert';
+import CitySearch from './components/CitySearch';
+import EventList from './components/EventList';
+import NumberOfEvents from './components/NumberOfEvents';
+
+import './App.css';
 
 class App extends Component {
 
@@ -22,7 +26,6 @@ class App extends Component {
       this.updateEvents();
       this.noEvent();
       window.addEventListener('online', this.offLineAlert());
-
     }
 
     offLineAlert = () => {
@@ -36,7 +39,31 @@ class App extends Component {
         });
       }
     }
+
+  //finding the event local_dates coming up plugged into getDate
+    countEventsOnADate = (date) => {
+      let count = 0;
+      for (let i = 0; i < this.state.events.length; i += 1) {
+        if (this.state.events[i].local_date === date) {
+          count += 1;
+        }
+      }
+      return count;
+    }
   
+
+    getData = () => {
+      const next7Days = [];
+      const currentDate = moment();
+      for (let i = 0; i < 7; i += 1){
+        currentDate.add(1, 'days');
+        const dateString = currentDate.format('YYYY-MM-DD');
+
+        const count = this.countEventsOnADate(dateString);
+        next7Days.push({ date: dateString, number: count });
+      }
+      return next7Days;
+    }
 
 
     updateEvents = (lat, lon, page) => {
@@ -74,6 +101,23 @@ class App extends Component {
         <h3>Checkout some events for your city!</h3>
         <CitySearch updateEvents={this.updateEvents} />
         <NumberOfEvents updateEvents={this.updateEvents} />
+        <ResponsiveContainer height={400}>
+            <ScatterChart 
+              width={800} 
+              height={400} 
+              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+            >
+                <CartesianGrid strokeDasharray="3 3" />
+
+                <XAxis dataKey="date" type='category' name="date" />
+                <YAxis dataKey="number" type='number' name="Number of Events" />
+
+                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+
+                <Scatter data={this.getData()} fill="#8884d8" />
+
+            </ScatterChart>
+        </ResponsiveContainer>
         {this.state.noEvent && <WarningAlert text={this.state.infoText} /> }
         <OfflineAlert text={this.state.offlineText} />
         <EventList events={this.state.events}/>
