@@ -11,8 +11,10 @@ Pie charts available on events that have reservation info:
 
 [![piechart.png](https://i.postimg.cc/44qswBkW/piechart.png)](https://postimg.cc/9zd6QPf9)
 ### Test Login information to meetup
-```email: kja76448@bcaoo.com
+```
+email: kja76448@bcaoo.com
 pw: testing
+
 ```
 
 ### Redirect URL
