@@ -60,7 +60,6 @@ input[type="text"], input[type="number"] {
   border-bottom-right-radius: 4px;
 }
 
-
 .suggestions > li:hover {
   background-color: #BCDCDB;
 }
@@ -75,6 +74,16 @@ input[type="text"], input[type="number"] {
 }
 
 .eventButton {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.lessInfo {
   position: absolute;
   right: 5px;
   bottom: 5px;
@@ -92,21 +101,8 @@ input[type="text"], input[type="number"] {
   border: 1px solid rgb(206, 202, 202);
   border-radius: 4px;
   background-color: rgb(233, 227, 227);
-  
+  overflow: hidden;
 }
-/* 
-.group-name {
-  text-transform: uppercase;
-  font-size: 14px;
-}
-
-.going, .visibility {
-  font-style: italic;
-}
-
-.description {
-  overflow-x: hidden;
-} */
 
 .eventsNumberInput {
   width: 80px;

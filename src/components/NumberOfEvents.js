@@ -7,6 +7,7 @@ class NumberOfEvents extends Component {
         query: 32, //default event number per page for meetup
     }
 
+//error if try to search for no/negative events
     handleChange = (event) => {
         const value = event.target.value;
         this.setState({ query: value });

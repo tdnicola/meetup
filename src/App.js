@@ -52,6 +52,7 @@ class App extends Component {
     }
   
 
+//reformat the date and push into array
     getData = () => {
       const next7Days = [];
       const currentDate = moment();
@@ -82,6 +83,7 @@ class App extends Component {
       }
     }
 
+//if noEvents are available error will display. Seems to always have events though..
       noEvent = () => {
         if(this.state.events.length === 0) {
           this.setState({
